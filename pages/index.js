@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
 export async function getStaticProps() {
@@ -46,9 +48,14 @@ function Product({ product }) {
 
   return (
     <div className={styles.product}>
-      <a href={`/product/${product.slug}`}>
-        <img src={product.imageSrc} alt={product.imageAlt} />
-      </a>
+      <Link href={`/product/${product.slug}`}>
+        <Image
+          src={product.imageSrc}
+          alt={product.imageAlt}
+          width={400}
+          height={400}
+        />
+      </Link>
       <h2>{product.title}</h2>
       <p>{product.description}</p>
       <p className={styles.price}>{formattedPrice.format(product.price)}</p>

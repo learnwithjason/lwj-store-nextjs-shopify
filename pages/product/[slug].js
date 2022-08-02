@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../../styles/Home.module.css';
 
 export async function getStaticPaths() {
@@ -67,7 +69,12 @@ function Product({ product }) {
   return (
     <div className={styles.product}>
       <a href={`/product/${product.slug}`}>
-        <img src={product.imageSrc} alt={product.imageAlt} />
+        <Image
+          src={product.imageSrc}
+          alt={product.imageAlt}
+          width={400}
+          height={400}
+        />
       </a>
       <h2>{product.title}</h2>
       <p>{product.description}</p>
@@ -90,7 +97,7 @@ export default function ProductPage({ product }) {
       <main className={styles.main}>
         <h1 className={styles.title}>Store</h1>
 
-        <a href="/">&larr; back home</a>
+        <Link href="/">&larr; back home</Link>
 
         <div className={styles.products}>
           <Product product={product} />
