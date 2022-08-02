@@ -1,0 +1,18 @@
+.container {
+  margin: 5rem auto;
+  max-width: 600px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.product img {
+  width: 100%;
+}
+
+.product h2 {
+  font-size: 1.125rem;
+}

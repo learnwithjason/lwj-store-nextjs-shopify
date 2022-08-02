@@ -1,0 +1,24 @@
+{
+  "name": "lwj-store-nextjs-shopify",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@shopify/shopify-api": "^5.0.0",
+    "next": "12.2.3",
+    "node-fetch": "^3.2.10",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.3",
+    "eslint": "8.21.0",
+    "eslint-config-next": "12.2.3",
+    "typescript": "^4.7.4"
+  }
+}
