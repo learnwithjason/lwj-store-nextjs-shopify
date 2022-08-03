@@ -72,7 +72,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-function Product({ product }) {
+function Product({ slug, imageSrc, imageAlt, title, description, price }) {
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -80,22 +80,18 @@ function Product({ product }) {
 
   return (
     <div className={styles.product}>
-      <a href={`/product/${product.slug}`}>
-        <Image
-          src={product.imageSrc}
-          alt={product.imageAlt}
-          width={400}
-          height={400}
-        />
+      <a href={`/product/${slug}`}>
+        <Image src={imageSrc} alt={imageAlt} width={400} height={400} />
       </a>
-      <h2>{product.title}</h2>
-      <p>{product.description}</p>
-      <p className={styles.price}>{formattedPrice.format(product.price)}</p>
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <p className={styles.price}>{formattedPrice.format(price)}</p>
     </div>
   );
 }
 
 export default function ProductPage({ product }) {
+  console.log({ product });
   return (
     <div className={styles.container}>
       <Head>
@@ -112,7 +108,7 @@ export default function ProductPage({ product }) {
         <Link href="/">&larr; back home</Link>
 
         <div className={styles.products}>
-          <Product product={product} />
+          <Product {...product} />
         </div>
       </main>
     </div>
